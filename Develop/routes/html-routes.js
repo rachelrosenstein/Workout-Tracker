@@ -1,4 +1,4 @@
-
+const db = require('/Users/rachel/Workout-Tracker/Develop/models')
 const path = require("path");
 
 module.exports = (app) => {

@@ -1,98 +1,32 @@
-const db = require("../models");
-
-require("mongoose");
-
-
-
-
+//db
+const db = require('../models')
 module.exports = (app) => {
-    // creation of a workout
-    app.post("/api/workouts", (req, res) => {
-        db.Workout.create({}).then(data => res.json(data))
-            .catch(err => {
-                console.log("error", err);
 
-                res.json(err);
-
-            });
-    });
-
-
-
-    // adding an exercise 
-
-    app.put("/api/workouts/:id", (req, res) => {
-
-        //had --> .updateOne({ _id: req.params.id},
-
-        db.Workout.findByIdAndUpdate(req.params.id,
-
-            { $push: { exercises: req.body } },
-            { new: true, runValidators: true })
-
-            .then(data => res.json(data))
-
-            .catch(err => {
-
-                console.log("error", err);
-
-                res.json(err);
-
-            });
-
-    });
-
-
-
-    // find all workouts within range
-
-    app.get("/api/workouts/range", (req, res) => {
-
-        //had  -->         .limit(7)
-        //had -->          .sort({ _id: -1 }).limit(7)
-
-        db.Workout.find({}).limit(7).then(data => res.json(data))
-
-
-            .catch(err => {
-
-                console.log("error", err);
-
-                res.json(err);
-
-            });
-
-    });
-
-
-
-    // get the last workout
-
+    //////Workout Routes//////
+    //get all
     app.get("/api/workouts", (req, res) => {
-
-
-        db.Workout.find({}).then(data => res.json(data))
-
-
-            .catch(err => {
-
-                console.log("error", err);
-
-                res.json(err);
-
-            });
-
+        db.Workout.find({}, (err, workouts) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.json(workouts)
+            }
+        });
+    });
+    //add excerise, set id, push to model, set true
+    app.put("/api/workouts/:workout", ({ params, body }, res) => {
+        db.Workout.findOneAndUpdate({ _id: params.id },
+            { $push: { excercises: body } },
+            { upsert: true, useFindandModify: false },
+            updatedWorkout => {
+                res.json(updatedWorkout);
+            })
+    });
+    //create new workout
+    app.post('/api/workouts', (req, res) => {
+        db.Workout.create({}).then(newWorkout => {
+            res.json(newWorkout);
+        });
     });
 
-
-
-    // catch-all on the "/"
-
-    app.get("*", (req, res) => {
-
-        res.redirect("/");
-
-    });
-
-
-};
+}
