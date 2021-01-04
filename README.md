@@ -8,8 +8,8 @@ https://vast-caverns-08364.herokuapp.com/
 
 (I was have been struggling with getting Heroku App Built, all instructions were followed.)
 
- ![](/Users/rachel/Workout-Tracker/Screen Shot 2021-01-04 at 3.21.02 PM.png)
-![](/Users/rachel/Workout-Tracker/Screen Shot 2021-01-04 at 3.21.07 PM.png)
+ ![](https://github.com/rachelrosenstein/Workout-Tracker/blob/main/Screen%20Shot%202021-01-04%20at%203.21.02%20PM.png?raw=true)
+![](https://github.com/rachelrosenstein/Workout-Tracker/blob/main/Screen%20Shot%202021-01-04%20at%203.21.07%20PM.png?raw=true)
 ## Description
  * Add exercises to a previous workout plan.
 
