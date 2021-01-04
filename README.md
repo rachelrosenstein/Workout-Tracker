@@ -4,8 +4,12 @@
 https://github.com/rachelrosenstein/Workout-Tracker
 
 ## Link to the Deployed Application
+https://vast-caverns-08364.herokuapp.com/
 
+(I was have been struggling with getting Heroku App Built, all instructions were followed.)
 
+ ![](/Users/rachel/Workout-Tracker/Screen Shot 2021-01-04 at 3.21.02 PM.png)
+![](/Users/rachel/Workout-Tracker/Screen Shot 2021-01-04 at 3.21.07 PM.png)
 ## Description
  * Add exercises to a previous workout plan.
 
